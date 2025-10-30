@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f2f5;
+    margin-top: 2rem;
+}
+
+h1, p {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-top: 0;
+    color: #555;
+}
+
+#sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    width: 450px;
+    height: 450px;
+    border: 3px solid #333;
+    margin-bottom: 1.5rem;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Important! */
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 0;
+    color: #444;
+}
+
+.cell.given {
+    background-color: #eee;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Add thick borders for the 3x3 subgrids */
+.cell:nth-child(3n) {
+    border-right: 3px solid #333;
+}
+.cell:nth-child(9n) {
+    border-right: 1px solid #ccc; /* Reset right border for last cell */
+}
+
+/* Add thick borders for rows */
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+     border-bottom: 3px solid #333;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button#clear-btn {
+    background-color: #dc3545;
+}
+
+button#clear-btn:hover {
+    background-color: #a71d2a;
+}
