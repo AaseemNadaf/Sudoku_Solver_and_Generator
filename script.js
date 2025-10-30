@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return board;
     }
 
+    // --- THIS IS THE CORRECTED FUNCTION ---
     function updateBoard(board) {
         // Clear all highlights before updating
         cells.forEach(c => c.classList.remove('selected', 'highlight', 'same-value'));
@@ -111,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     cell.value = '';
                     cell.readOnly = false;
                     cell.classList.remove('given');
-S                }
+                } // <-- The stray 'S' was here
             }
         }
     }
