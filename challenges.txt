@@ -1,1 +1,0 @@
-Generating the same board every time. Means order of numbers on the board is the same every time.

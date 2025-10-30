@@ -1,0 +1,146 @@
+/* --- Global & Sudoku.com Theme --- */
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* Light grey background */
+    color: #333;
+    margin-top: 2rem;
+}
+
+h1 {
+    font-weight: 700;
+    color: #111;
+}
+
+p {
+    margin-top: 0;
+    color: #555;
+}
+
+/* --- The Sudoku.com-style Board --- */
+#sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    
+    width: 90vw;
+    height: 90vw;
+    max-width: 540px; /* Slightly larger for a premium feel */
+    max-height: 540px;
+    
+    background-color: #ffffff;
+    
+    /* Main outer border */
+    border: 3px solid #007bff; /* Sudoku.com blue */
+    border-radius: 5px;
+    
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    margin-bottom: 2rem;
+}
+
+/* --- The Grid Cells --- */
+.cell {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    
+    /* Font for USER-ENTERED numbers */
+    font-size: 2rem; /* Larger font */
+    font-weight: 600;
+    color: #007bff; /* Blue for user numbers */
+    text-align: center;
+    
+    /* Remove default input appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    
+    /* Light grey border for all cells */
+    border: 1px solid #cde4ff;
+    
+    /* Smooth transition for highlighting */
+    transition: background-color 0.1s ease-in-out;
+}
+
+/* --- The "Given" (Pre-filled) Numbers --- */
+.cell.given {
+    font-weight: 700;
+    color: #343a40; /* Dark, bold "given" numbers */
+    background-color: #fff;
+    cursor: not-allowed;
+}
+
+/* --- INTERACTIVE HIGHLIGHTING --- */
+
+/* For cells in the same row/col/box as the selected one */
+.cell.highlight {
+    background-color: #e9efff; /* Very light blue */
+}
+
+/* For the single cell that is currently clicked */
+.cell.selected {
+    background-color: #cde4ff; /* Medium blue */
+}
+
+/* For cells with the same value as the selected one */
+.cell.same-value {
+    background-color: #b8d6ff; /* A slightly stronger highlight */
+}
+
+/* Remove ugly focus ring, we handle selection manually */
+.cell:focus {
+    outline: none;
+}
+
+/* --- The 3x3 Subgrid Borders (The "Proper" Grid) --- */
+.cell:nth-child(3n) {
+    border-right: 2px solid #007bff;
+}
+.cell:nth-child(9n) {
+    border-right: 1px solid #cde4ff;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid #007bff;
+}
+
+
+/* --- Classic Buttons --- */
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+button#clear-btn {
+    background-color: #6c757d;
+}
+
+button#clear-btn:hover {
+    background-color: #5a6268;
+}
