@@ -1,15 +1,13 @@
-# sudoku_logic.py
 import random
 from typing import List, Tuple, Optional
 
-# --- Constants ---
+# Constants
 GRID_SIZE = 9
-
 Board = List[List[int]]
 Position = Tuple[int, int]
 
 def find_empty(board: Board) -> Optional[Position]:
-    """Finds the next empty cell (represented by 0) in the board."""
+    # Finds the next empty cell (represented by 0) in the board
     for r in range(GRID_SIZE):
         for c in range(GRID_SIZE):
             if board[r][c] == 0:
@@ -17,7 +15,7 @@ def find_empty(board: Board) -> Optional[Position]:
     return None
 
 def is_valid(board: Board, num: int, pos: Position) -> bool:
-    """Checks if placing a number in a given position is valid."""
+    # Checks if placing a number in a given position is valid.
     row, col = pos
 
     # Check row
